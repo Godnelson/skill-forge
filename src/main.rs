@@ -1,14 +1,20 @@
+mod models;
+mod repos;
+mod handlers;
+mod routes;
+
 use std::path::Path;
-use axum::{serve, Router};
+use models::user::User;
+use axum::{serve, Json, Router};
 use axum::extract::State;
 use axum::http::StatusCode;
 use axum::response::IntoResponse;
-use axum::routing::get;
-use serde::{Deserialize, Serialize};
+use axum::routing::{get};
 use serde_json::json;
-use sqlx::{FromRow, Pool, Sqlite};
+use sqlx::{Pool, Sqlite};
 use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use tokio::net::TcpListener;
+use crate::routes::user::user_routes;
 
 #[tokio::main]
 async fn main() {
@@ -26,24 +32,15 @@ async fn app(pool: Pool<Sqlite>) -> Router {
         .route("/", get(|| async { json!({"hello": "world"}).to_string()}))
         .route("/cu", get(|| async { json!({"cu": "cu"}).to_string() }))
         .route("/test_db", get(test_db))
+        .merge(user_routes())
         .with_state(pool)
 }
 
-async fn test_db(State(pool): State<Pool<Sqlite>>) -> impl IntoResponse {
+async fn test_db(State(pool): State<Pool<Sqlite>>, Json(cu): Json<User>) -> impl IntoResponse {
     let users:Vec<User> = sqlx::query_as("select * from users").fetch_all(&pool).await.unwrap();
+    println!("{:?}", cu);
     let json_data: String = serde_json::to_string_pretty(&users).unwrap();
-
     (StatusCode::OK, json_data).into_response()
-}
-
-#[derive(Debug, Deserialize, Serialize, FromRow)]
-struct User {
-    id: String,
-    name: String,
-    bio: String,
-    pfp: String,
-    cv: String,
-    is_banned: bool,
 }
 
 async fn db() -> Pool<Sqlite> {
