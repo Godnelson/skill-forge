@@ -1,26 +1,29 @@
 -- Add up migration script here
-create table if not exists users (
-                                     id varchar(255) primary key,
-    name varchar(255) not null,
-    bio varchar(1000),
-    pfp varchar(255),
-    cv varchar(255),
-    is_banned bit default 0
-    );
+create table if not exists users
+(
+    id        varchar(255) primary key,
+    name      varchar(255) not null,
+    bio       varchar(1000),
+    pfp       varchar(255),
+    cv        varchar(255),
+    is_banned bool default false
+);
 
-create table if not exists user_skill (
-                                          id varchar(255) primary key,
-    name varchar(255) not null,
+create table if not exists user_skill
+(
+    id      varchar(255) primary key,
+    name    varchar(255) not null,
     user_id varchar(255),
-    foreign key (user_id) references users(id)
-    );
+    foreign key (user_id) references users (id)
+);
 
-create table if not exists review (
-                                      id varchar(255) primary key,
-    rate float check (rate >= 0 and rate <= 5),
-    description varchar(1000),
-    user_sender_id varchar(255),
+create table if not exists review
+(
+    id               varchar(255) primary key,
+    rate             float check (rate >= 0 and rate <= 5),
+    description      varchar(1000),
+    user_sender_id   varchar(255),
     user_receiver_id varchar(255),
-    foreign key (user_sender_id) references users(id),
-    foreign key (user_sender_id) references users(id)
-    );
+    foreign key (user_sender_id) references users (id),
+    foreign key (user_sender_id) references users (id)
+);
