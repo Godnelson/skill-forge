@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
+use utoipa::ToSchema;
 
-#[derive(Debug, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Deserialize, Serialize, FromRow, ToSchema)]
 pub struct User {
     pub id: String,
     pub name: String,
@@ -13,7 +14,7 @@ pub struct User {
     pub is_banned: bool,
 }
 
-#[derive(Debug, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Deserialize, Serialize, FromRow, ToSchema)]
 pub struct UserToCreate {
     pub name: String,
     pub password: String,

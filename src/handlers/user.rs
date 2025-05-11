@@ -17,6 +17,13 @@ use crate::repos::user::read_user_by_id as repo_read_users_by_id;
 use crate::repos::user::read_users as repo_read_users;
 use crate::repos::user::update_user as repo_update_user;
 
+#[utoipa::path(
+    get,
+    path = "/user",
+    responses(
+        (status = 200, description = "Get users success", body = Vec<User>)
+    )
+)]
 pub async fn read_users(State(pool): State<Pool<Postgres>>) -> impl IntoResponse {
     let users: Vec<User> = repo_read_users(pool).await;
     (

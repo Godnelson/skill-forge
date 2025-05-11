@@ -1,18 +1,33 @@
+mod config;
 mod handlers;
 mod models;
 mod repos;
 mod routes;
-mod config;
 
 use crate::routes::user::user_routes;
 use axum::routing::get;
 use axum::{serve, Router};
-use axum::response::IntoResponse;
 use dotenv::dotenv;
 use serde_json::json;
 use sqlx::{Pool, Postgres};
 use tokio::net::TcpListener;
 
+use utoipa::OpenApi;
+use utoipa_swagger_ui::SwaggerUi;
+
+#[derive(OpenApi)]
+#[openapi(
+    paths(
+        handlers::user::read_users,
+    ),
+    components(
+        schemas(models::user::User, models::user::UserToCreate),
+    ),
+    tags(
+        (name = "User", description = "Operações com usuários"),
+    )
+)]
+struct ApiDoc;
 
 #[tokio::main]
 async fn main() {
@@ -26,9 +41,9 @@ async fn main() {
 }
 
 async fn app(pool: Pool<Postgres>) -> Router {
-
     Router::new()
         .route("/", get(|| async { json!({"hello": "world"}).to_string() }))
         .merge(user_routes())
         .with_state(pool)
+        .merge(SwaggerUi::new("/docs").url("/api-doc/openapi.json", ApiDoc::openapi()))
 }
