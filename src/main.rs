@@ -3,15 +3,16 @@ mod models;
 mod repos;
 mod routes;
 mod config;
-mod doc;
 
 use crate::routes::user::user_routes;
 use axum::routing::get;
 use axum::{serve, Router};
+use axum::response::IntoResponse;
 use dotenv::dotenv;
 use serde_json::json;
 use sqlx::{Pool, Postgres};
 use tokio::net::TcpListener;
+
 
 #[tokio::main]
 async fn main() {
@@ -25,6 +26,7 @@ async fn main() {
 }
 
 async fn app(pool: Pool<Postgres>) -> Router {
+
     Router::new()
         .route("/", get(|| async { json!({"hello": "world"}).to_string() }))
         .merge(user_routes())

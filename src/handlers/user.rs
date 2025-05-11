@@ -37,7 +37,10 @@ pub async fn create_user(
 ) -> impl IntoResponse {
     let salt = SaltString::generate(&mut OsRng);
     let argon2 = Argon2::default();
-    let password_hash = argon2.hash_password(user.password.as_bytes(), &salt).unwrap().to_string();
+    let password_hash = argon2
+        .hash_password(user.password.as_bytes(), &salt)
+        .unwrap()
+        .to_string();
     let result = repo_create_user(
         pool,
         User {
