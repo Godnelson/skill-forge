@@ -15,10 +15,15 @@ use tokio::net::TcpListener;
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
+
 #[derive(OpenApi)]
 #[openapi(
     paths(
         handlers::user::read_users,
+        handlers::user::read_users_by_id,
+        handlers::user::create_user,
+        handlers::user::update_user,
+        handlers::user::delete_user,
     ),
     components(
         schemas(models::user::User, models::user::UserToCreate),
