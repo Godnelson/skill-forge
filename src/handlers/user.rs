@@ -112,7 +112,7 @@ pub async fn create_user(
         cv: user.cv,
         is_banned: false,
     };
-    let result = repo_create_user(pool, user.clone()).await;
+    let result = repo_create_user(pool, &user).await;
 
     let user_to_return = UserDTO {
         id: user.id,
