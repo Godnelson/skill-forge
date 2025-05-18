@@ -18,6 +18,14 @@ pub async fn read_user_by_id(pool: Pool<Postgres>, id: String) -> Result<Option<
     user
 }
 
+pub async fn read_user_by_email(pool: Pool<Postgres>, email: String) -> Result<Option<User>, Error> {
+    let user = sqlx::query_as("select * from users where email=$1")
+        .bind(email)
+        .fetch_optional(&pool)
+        .await;
+    user
+}
+
 pub async fn create_user(pool: Pool<Postgres>, user: &User) -> Result<PgQueryResult, Error> {
     let result = sqlx::query(
         "insert into users (id, name, email, password, bio, pfp, cv, is_banned) values ($1, $2, $3, $4, $5, $6, $7, $8)",
