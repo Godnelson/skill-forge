@@ -34,7 +34,7 @@ pub async fn update_role(pool: Pool<Postgres>, role: &Role) -> Result<PgQueryRes
     Ok(result)
 }
 
-pub async fn delete_role(pool: Pool<Postgres>, id: String, role: &Role) -> Result<PgQueryResult, Error> {
+pub async fn delete_role(pool: Pool<Postgres>, id: String) -> Result<PgQueryResult, Error> {
     let result = sqlx::query("DELETE FROM role  WHERE id = $1")
         .bind(&id)
         .execute(&pool)

@@ -11,23 +11,12 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76031b2e-0d27-4939-b5b7-d4ad759f0b8f" name="Changes" comment="role table and relations created">
-      <change afterPath="$PROJECT_DIR$/src/models/role.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user_assigned_roles.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repos/role.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/skillforge.tosxYA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/skillforge.tosxYA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/316df730-0258-499c-b783-818d899cf9ab/storage_v2/_src_/database/skillforge.tosxYA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+    <list default="true" id="76031b2e-0d27-4939-b5b7-d4ad759f0b8f" name="Changes" comment="auth started, role repo finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/handlers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/handlers/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repos/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/repos/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repos/user.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/repos/user.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repos/role.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/repos/role.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +184,7 @@
       <workItem from="1747134740305" duration="2662000" />
       <workItem from="1747149012181" duration="767000" />
       <workItem from="1747347471756" duration="2544000" />
-      <workItem from="1747538453888" duration="1357000" />
+      <workItem from="1747538453888" duration="2637000" />
     </task>
     <task id="LOCAL-00001" summary="initial setup">
       <option name="closed" value="true" />
@@ -293,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747085220663</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="auth started, role repo finished">
+      <option name="closed" value="true" />
+      <created>1747540128274</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747540128274</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +319,8 @@
     <MESSAGE value="open api setted for users" />
     <MESSAGE value="user entity mvp finished" />
     <MESSAGE value="role table and relations created" />
-    <option name="LAST_COMMIT_MESSAGE" value="role table and relations created" />
+    <MESSAGE value="auth started, role repo finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth started, role repo finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
