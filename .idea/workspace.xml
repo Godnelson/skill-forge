@@ -11,12 +11,12 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76031b2e-0d27-4939-b5b7-d4ad759f0b8f" name="Changes" comment="auth started, role repo finished">
+    <list default="true" id="76031b2e-0d27-4939-b5b7-d4ad759f0b8f" name="Changes" comment="wip: repo handler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/handlers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/handlers/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repos/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/repos/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repos/role.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/repos/role.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/handlers/role.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/handlers/role.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +184,9 @@
       <workItem from="1747134740305" duration="2662000" />
       <workItem from="1747149012181" duration="767000" />
       <workItem from="1747347471756" duration="2544000" />
-      <workItem from="1747538453888" duration="2637000" />
+      <workItem from="1747538453888" duration="5269000" />
+      <workItem from="1747663150544" duration="3907000" />
+      <workItem from="1747668175398" duration="1212000" />
     </task>
     <task id="LOCAL-00001" summary="initial setup">
       <option name="closed" value="true" />
@@ -290,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747540128274</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="wip: repo handler">
+      <option name="closed" value="true" />
+      <created>1747541154276</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747541154276</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +330,8 @@
     <MESSAGE value="user entity mvp finished" />
     <MESSAGE value="role table and relations created" />
     <MESSAGE value="auth started, role repo finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth started, role repo finished" />
+    <MESSAGE value="wip: repo handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip: repo handler" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

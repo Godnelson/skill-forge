@@ -14,7 +14,7 @@ use tokio::net::TcpListener;
 
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
-
+use crate::routes::role::role_routes;
 
 #[derive(OpenApi)]
 #[openapi(
@@ -24,6 +24,11 @@ use utoipa_swagger_ui::SwaggerUi;
         handlers::user::create_user,
         handlers::user::update_user,
         handlers::user::delete_user,
+        handlers::role::read_roles,
+        handlers::role::read_role_by_id,
+        handlers::role::create_role,
+        handlers::role::update_role,
+        handlers::role::delete_role,
     ),
     components(
         schemas(models::user::User, models::user::UserToCreate),
@@ -49,6 +54,7 @@ async fn app(pool: Pool<Postgres>) -> Router {
     Router::new()
         .route("/", get(|| async { json!({"hello": "world"}).to_string() }))
         .merge(user_routes())
+        .merge(role_routes())
         .with_state(pool)
         .merge(SwaggerUi::new("/docs").url("/api-doc/openapi.json", ApiDoc::openapi()))
 }
